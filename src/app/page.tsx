@@ -3,73 +3,76 @@ import { getGoogleAuthUrl } from "@/utils/auth";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
+import Link from "next/link";
 
-const FETCH_STATUS = {
-  IDLE: "idle",
-  LOADING: "loading",
-  SUCCESS: "success",
-  ERROR: "error",
-}
-
-export default function Home() {
+export default function Component() {
   const router = useRouter()
-  const [status, setStatus] = useState<string>(FETCH_STATUS.IDLE)
-  const [showAdvance, setShowAdvance] = useState<boolean>(false)
-
-  const [pin, setPin] = useState<string>("")
-  const [clientId, setClientId] = useState<string>("")
-  const [clientSecret, setClientSecret] = useState<string>("")
+  const [status, setStatus] = useState<"idle" | "loading" | "error">("idle")
+  const [pin, setPin] = useState("")
 
   const handleAuth = async (e: FormEvent) => {
     e.preventDefault()
-    setStatus(FETCH_STATUS.LOADING)
+    setStatus("loading")
 
     try {
       await axios.get(`/authorize?pin=${pin}`)
     } catch (e) {
-      setStatus(FETCH_STATUS.ERROR)
+      setStatus("error")
       return
     }
-    const url = showAdvance ? getGoogleAuthUrl(pin, clientId, clientSecret) : getGoogleAuthUrl(pin)
+    const url = getGoogleAuthUrl(pin)
     router.push(url)
   }
 
-  const isIdle = status === FETCH_STATUS.IDLE
-  const isLoading = status === FETCH_STATUS.LOADING
-  const isError = status === FETCH_STATUS.ERROR
-
   return (
-    <main className="flex min-h-screen flex-col items-center gap-10 p-24">
-      <h1 className="text-4xl font-medium">Authenticate Your Kodi</h1>
-      <form onSubmit={handleAuth}>
-        <div className="grid gap-4">
-          <div className="grid gap-1">
-            <input
-              className="h-12 rounded px-4 border text-xl"
-              placeholder="PIN"
-              onChange={(e) => {
-                setStatus(FETCH_STATUS.IDLE)
-                setPin(e.target.value)
-              }}
-            />
-            <span className="font-bold text-sm text-red-500 px-4">
-              {
-                isError && "Invalid PIN"
-              }
-            </span>
-          </div>
-          <button
-            className="flex items-center justify-center h-12 p-4 bg-[#29B6F6] rounded disabled:bg-gray-200"
-            type="submit"
-            disabled={isLoading}
-          >
-            <span className="text-white">
-              GO
-            </span>
-          </button>
+      <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-[#0f0f0f] relative overflow-hidden">
+        {/* Gradient backgrounds */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+          <div className="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-gradient-to-br from-purple-500/30 to-pink-500/30 rounded-full filter blur-[80px] opacity-60 animate-pulse-slow"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-gradient-to-tr from-blue-500/20 to-teal-500/20 rounded-full filter blur-[100px] opacity-50 animate-pulse-slow animation-delay-2000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-indigo-500/15 to-purple-500/15 rounded-full filter blur-[120px] opacity-40 animate-pulse-slow animation-delay-4000"></div>
+          <div className="absolute top-3/4 left-1/3 w-[350px] h-[350px] bg-gradient-to-bl from-teal-400/25 to-emerald-500/25 rounded-full filter blur-[70px] opacity-55 animate-pulse-slow animation-delay-1000"></div>
+          <div className="absolute bottom-1/3 right-1/4 w-[450px] h-[450px] bg-gradient-to-tl from-cyan-400/20 to-blue-500/20 rounded-full filter blur-[90px] opacity-45 animate-pulse-slow animation-delay-3000"></div>
         </div>
 
-      </form>
-    </main>
-  );
+        {/* Glass-like modal */}
+        <div className="w-full max-w-md bg-white/10 backdrop-blur-xl rounded-xl shadow-2xl overflow-hidden border border-white/20 relative z-10">
+          <div className="p-6 space-y-6">
+            <h2 className="text-2xl font-bold text-center text-white">Autenticar tu Kodi</h2>
+            <form onSubmit={handleAuth} className="space-y-4">
+              <div>
+                <label htmlFor="pin" className="block text-sm font-medium text-gray-200 mb-1">PIN</label>
+                <input
+                    id="pin"
+                    type="text"
+                    placeholder="Ingresa tu PIN"
+                    className="w-full px-3 py-2 bg-gray-800/50 text-white rounded-md border border-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500 backdrop-blur-sm"
+                    onChange={(e) => {
+                      setStatus("idle")
+                      setPin(e.target.value)
+                    }}
+                />
+                {status === "error" && (
+                    <p className="mt-1 text-sm text-red-400">PIN inválido</p>
+                )}
+              </div>
+              <button
+                  type="submit"
+                  className="w-full py-2 px-4 bg-gradient-to-r from-teal-400 to-cyan-500 text-white font-semibold rounded-md shadow-md hover:from-teal-500 hover:to-cyan-600 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
+                  disabled={status === "loading"}
+              >
+              <span className="relative z-10">
+                {status === "loading" ? "Cargando..." : "Continuar"}
+              </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-teal-500 to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur"></div>
+              </button>
+            </form>
+          </div>
+          <div className="px-6 py-4 bg-gray-800/30 backdrop-blur-sm flex justify-between text-sm text-gray-300">
+            <Link href="/terms" className="hover:text-white transition-colors duration-200">Términos de uso</Link>
+            <Link href="/privacy" className="hover:text-white transition-colors duration-200">Política de privacidad</Link>
+          </div>
+        </div>
+      </main>
+  )
 }
