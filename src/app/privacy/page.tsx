@@ -1,5 +1,7 @@
 import Layout from '@/app/base_layout'
 import { siteConfig } from '@/config/siteConfig'
+import {Home} from "lucide-react";
+import Link from "next/link";
 
 export default function PrivacyPolicy() {
     return (
@@ -7,7 +9,10 @@ export default function PrivacyPolicy() {
             title="Política de Privacidad"
             description={`Política de privacidad para el uso de ${siteConfig.appName}.`}
         >
-            <h1 className="text-3xl font-bold text-center text-white mb-6">Política de Privacidad</h1>
+            <Link href="/" className="absolute top-3 left-3 p-3 bg-gradient-to-r from-teal-400 to-cyan-500 text-white rounded-full hover:bg-blue-600 transition-colors duration-200">
+                <Home className="h-6 w-6" />
+            </Link>
+            <h1 className="text-3xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-500">Política de Privacidad</h1>
             <p className="text-right text-sm text-gray-400 mb-6">Última Actualización: {siteConfig.lastUpdated}</p>
 
             <div className="space-y-6 text-gray-200">
