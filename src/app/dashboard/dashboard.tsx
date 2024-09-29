@@ -174,14 +174,13 @@ export default function DashboardPage() {
                 <Card className="bg-gray-950 border-gray-800">
                     <CardHeader>
                         <CardTitle className="text-blue-400">Próximos pasos</CardTitle>
-                        <CardDescription>Sigue estas instrucciones para completar la configuración en
-                            Kodi</CardDescription>
+                        <CardDescription>Sigue estas instrucciones para completar la configuración en Kodi</CardDescription>
                     </CardHeader>
                     <CardContent>
                         <ol className="list-decimal list-inside space-y-4 text-gray-300">
                             <li>Abre Kodi en tu dispositivo</li>
-                            <li>Ve a "Complementos" y selecciona "Instalar desde repositorio"</li>
-                            <li>Busca y selecciona el complemento "Google Drive para Kodi"</li>
+                            <li>Ve a &quot;Complementos&quot; y selecciona &quot;Instalar desde repositorio&quot;</li>
+                            <li>Busca y selecciona el complemento &quot;Google Drive para Kodi&quot;</li>
                             <li>En la configuración del complemento, introduce el token de acceso y el token de
                                 actualización
                             </li>
