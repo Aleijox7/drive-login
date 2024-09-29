@@ -1,0 +1,77 @@
+{
+  "LandingPage": {
+    "hero": {
+      "title": "Access your Google Drive library in Kodi",
+      "description": "Connect your Google Drive account with Kodi and enjoy your multimedia content hassle-free.",
+      "cta": "Sign in with Google"
+    },
+    "features": {
+      "title": "Features",
+      "items": [
+        {
+          "title": "Secure access",
+          "description": "Log in securely with OAuth 2.0 to connect your Google Drive account."
+        },
+        {
+          "title": "Cloud library",
+          "description": "Access all your multimedia files stored in Google Drive directly from Kodi."
+        },
+        {
+          "title": "Seamless integration",
+          "description": "Enjoy a smooth experience while browsing and playing your content in Kodi."
+        }
+      ]
+    },
+    "howItWorks": {
+      "title": "How it works",
+      "list": [
+        "Log in with your Google account on this web page.",
+        "Authorize access to your Google Drive.",
+        "Configure the Kodi add-on with the provided credentials.",
+        "Done! Now you can access your Google Drive content in Kodi."
+      ]
+    },
+    "footer": {
+      "copyright": "© {year} KodiDrive. All rights reserved.",
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy"
+    }
+  },
+  "PostLoginPage": {
+    "title": "Successfully connected to Google Drive",
+    "alert": {
+      "title": "Authentication completed",
+      "description": "You have successfully logged into your Google Drive account."
+    },
+    "accessInfo": {
+      "title": "Access Information",
+      "description": "Use this information to configure the Kodi add-on",
+      "accessToken": "Access Token",
+      "refreshToken": "Refresh Token",
+      "expiresIn": "Expires in",
+      "expiresInValue": "{seconds} seconds",
+      "copied": "Copied to clipboard!",
+      "refreshButton": "Refresh tokens"
+    },
+    "nextSteps": {
+      "title": "Next Steps",
+      "description": "Follow these instructions to complete the setup in Kodi",
+      "steps": [
+        "Open Kodi on your device",
+        "Go to \"Add-ons\" and select \"Install from repository\"",
+        "Find and select the \"Google Drive for Kodi\" add-on",
+        "In the add-on settings, enter the access token and refresh token",
+        "Save the settings and restart Kodi if necessary"
+      ],
+      "documentation": "View Kodi documentation"
+    },
+    "footer": {
+      "copyright": "© {year} KodiDrive. All rights reserved."
+    }
+  },
+  "LocaleSwitcher": {
+    "selectLanguage": "Select language",
+    "english": "English",
+    "spanish": "Spanish"
+  }
+}

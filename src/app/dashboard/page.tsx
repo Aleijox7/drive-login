@@ -1,6 +1,6 @@
 import {cookies} from "next/headers";
 import RootLayout from '@/app/layout';
-import AuthenticationSuccess from '@/app/success/success';
+import Dashboard from '@/app/dashboard/dashboard';
 
 export default function TermsPage({ params }) {
     if (!params.locale) {
@@ -8,7 +8,7 @@ export default function TermsPage({ params }) {
     }
     return (
         <RootLayout params={params}>
-            <AuthenticationSuccess />
+            <Dashboard />
         </RootLayout>
     )
 }

@@ -1,0 +1,77 @@
+{
+  "LandingPage": {
+    "hero": {
+      "title": "Accede a tu biblioteca de Google Drive en Kodi",
+      "description": "Conecta tu cuenta de Google Drive con Kodi y disfruta de tu contenido multimedia sin complicaciones.",
+      "cta": "Iniciar sesión con Google"
+    },
+    "features": {
+      "title": "Características",
+      "items": [
+        {
+          "title": "Acceso seguro",
+          "description": "Inicia sesión de forma segura con OAuth 2.0 para conectar tu cuenta de Google Drive."
+        },
+        {
+          "title": "Biblioteca en la nube",
+          "description": "Accede a todos tus archivos multimedia almacenados en Google Drive directamente desde Kodi."
+        },
+        {
+          "title": "Integración perfecta",
+          "description": "Disfruta de una experiencia fluida al navegar y reproducir tu contenido en Kodi."
+        }
+      ]
+    },
+    "howItWorks": {
+        "title": "Cómo funciona",
+        "list": [
+          "Inicia sesión con tu cuenta de Google en esta página web.",
+          "Autoriza el acceso a tu Google Drive.",
+          "Configura el add-on de Kodi con las credenciales proporcionadas.",
+          "¡Listo! Ahora puedes acceder a tu contenido de Google Drive en Kodi."
+        ]
+    },
+    "footer": {
+      "copyright": "© {year} KodiDrive. Todos los derechos reservados.",
+      "terms": "Términos de servicio",
+      "privacy": "Política de privacidad"
+    }
+  },
+  "PostLoginPage": {
+    "title": "Conexión exitosa con Google Drive",
+    "alert": {
+      "title": "Autenticación completada",
+      "description": "Has iniciado sesión correctamente en tu cuenta de Google Drive."
+    },
+    "accessInfo": {
+      "title": "Información de acceso",
+      "description": "Utiliza esta información para configurar el add-on de Kodi",
+      "accessToken": "Token de acceso",
+      "refreshToken": "Token de actualización",
+      "expiresIn": "Expira en",
+      "expiresInValue": "{seconds} segundos",
+      "copied": "¡Copiado al portapapeles!",
+      "refreshButton": "Actualizar tokens"
+    },
+    "nextSteps": {
+      "title": "Próximos pasos",
+      "description": "Sigue estas instrucciones para completar la configuración en Kodi",
+      "steps": [
+        "Abre Kodi en tu dispositivo",
+        "Ve a \"Complementos\" y selecciona \"Instalar desde repositorio\"",
+        "Busca y selecciona el complemento \"Google Drive para Kodi\"",
+        "En la configuración del complemento, introduce el token de acceso y el token de actualización",
+        "Guarda la configuración y reinicia Kodi si es necesario"
+      ],
+      "documentation": "Ver documentación de Kodi"
+    },
+    "footer": {
+      "copyright": "© {year} KodiDrive. Todos los derechos reservados."
+    }
+  },
+  "LocaleSwitcher": {
+    "selectLanguage": "Seleccionar idioma",
+    "english": "Inglés",
+    "spanish": "Español"
+  }
+}

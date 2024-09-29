@@ -2,6 +2,7 @@ import { Token, UserData } from "@/type";
 import RedisClient from "@/utils/redis";
 import axios from "axios";
 import { NextRequest, NextResponse } from "next/server";
+import { cookies } from 'next/headers';
 
 export async function GET(request: NextRequest, response: NextResponse) {
     const { searchParams } = new URL(request.url)
@@ -22,16 +23,10 @@ export async function GET(request: NextRequest, response: NextResponse) {
         return NextResponse.redirect("/")
     }
 
-    const stringUserData = await RedisClient.get(pin.toLowerCase()) as string
-    const userData = JSON.parse(stringUserData) as UserData
+    // Set all the oauth data on cookies
+    cookies().set("oauth", JSON.stringify(token), {
+        maxAge: token.expires_in
+    });
 
-    const newUserData = {
-        ...userData,
-        token: token,
-    }
-
-    const ttl = await RedisClient.ttl(pin.toLowerCase())
-    await RedisClient.set(pin.toLowerCase(), JSON.stringify(newUserData), 'EX', ttl)
-
-    return NextResponse.redirect(`${process.env.NEXT_PUBLIC_CLIENT_URL}/success`)
+    return NextResponse.redirect(`${process.env.NEXT_PUBLIC_CLIENT_URL}/dashboard`)
 }
