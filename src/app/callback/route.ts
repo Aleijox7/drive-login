@@ -25,7 +25,7 @@ export async function GET(request: NextRequest, response: NextResponse) {
 
     // Set all the oauth data on cookies
     cookies().set("oauth", JSON.stringify(token), {
-        maxAge: token.expires_in
+        maxAge: parseInt(token.expires_in)
     });
 
     return NextResponse.redirect(`${process.env.NEXT_PUBLIC_CLIENT_URL}/dashboard`)
