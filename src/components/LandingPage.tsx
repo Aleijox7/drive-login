@@ -13,6 +13,11 @@ import axios from "axios";
 import {getGoogleAuthUrl} from "@/utils/auth";
 import { useRouter } from "next/navigation";
 
+interface Feature {
+    title: string;
+    description: string;
+}
+
 export default function LandingPage() {
     const t = useTranslations('LandingPage');
     const router = useRouter()
@@ -73,7 +78,7 @@ export default function LandingPage() {
                             {t('features.title')}
                         </h2>
                         <div className="grid gap-6 lg:grid-cols-3 lg:gap-12">
-                            {t.raw('features.items').map((feature, index) => (
+                            {t.raw('features.items').map((feature: Feature, index: number) => (
                                 <Card key={index} className="bg-black border-gray-800">
                                     <CardHeader>
                                         <CardTitle className="flex items-center text-blue-400">
@@ -97,7 +102,7 @@ export default function LandingPage() {
                             {t('howItWorks.title')}
                         </h2>
                         <ol className="space-y-4 max-w-2xl mx-auto">
-                            {t.raw('howItWorks.list').map((step, index) => (
+                            {t.raw('howItWorks.list').map((step: string, index: number) => (
                                 <li key={index} className="flex items-center space-x-4">
                                     <CheckCircle className="h-6 w-6 text-blue-400 flex-shrink-0" />
                                     <span>{step}</span>
