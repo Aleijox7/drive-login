@@ -21,11 +21,11 @@ export default function LocaleSwitcher() {
                     <span className="sr-only">{t('selectLanguage')}</span>
                 </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="bg-black text-gray-100">
-                <DropdownMenuItem className="hover:bg-gray-900" onSelect={() => onSelectLocale('en')}>
+            <DropdownMenuContent align="end" className="bg-black text-neutral-100">
+                <DropdownMenuItem className="hover:bg-neutral-900" onSelect={() => onSelectLocale('en')}>
                     🇬🇧 {t('english')}
                 </DropdownMenuItem>
-                <DropdownMenuItem className="hover:bg-gray-900" onSelect={() => onSelectLocale('es')}>
+                <DropdownMenuItem className="hover:bg-neutral-900" onSelect={() => onSelectLocale('es')}>
                     🇪🇸 {t('spanish')}
                 </DropdownMenuItem>
             </DropdownMenuContent>

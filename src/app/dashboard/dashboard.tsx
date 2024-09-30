@@ -75,8 +75,8 @@ export default function DashboardPage() {
     }
 
     return (
-        <div className="flex flex-col min-h-screen bg-black text-gray-100">
-            <header className="px-4 lg:px-6 h-14 flex items-center justify-between border-b border-gray-800">
+        <div className="flex flex-col min-h-screen bg-black text-neutral-100">
+            <header className="px-4 lg:px-6 h-14 flex items-center justify-between border-b border-neutral-800">
                 <Link className="flex items-center justify-center" href="/">
                     <Film className="h-6 w-6 mr-2 text-blue-400"/>
                     <span className="font-bold text-blue-400">{siteConfig.appName}</span>
@@ -94,7 +94,7 @@ export default function DashboardPage() {
             <main className="flex-1 container mx-auto px-4 py-8">
                 <h1 className="text-3xl font-bold mb-6 text-center">Conexión exitosa con Google Drive</h1>
 
-                <Alert className="mb-6 bg-gray-950 border border-blue-400">
+                <Alert className="mb-6 bg-gray-950 border border-blue-900">
                     <CheckCircle className="h-4 w-4 text-blue-400"/>
                     <AlertTitle className="text-blue-400">Autenticación completada</AlertTitle>
                     <AlertDescription className="text-white">
@@ -102,10 +102,10 @@ export default function DashboardPage() {
                     </AlertDescription>
                 </Alert>
 
-                <Card className="mb-6 bg-gray-950 border-gray-800">
+                <Card className="mb-6 bg-neutral-950 border-neutral-800">
                     <CardHeader>
                         <CardTitle className="text-blue-400">Ingresa el PIN de Kodi</CardTitle>
-                        <CardDescription>Introduce el PIN generado por Kodi para obtener tus tokens de acceso</CardDescription>
+                        <CardDescription className="text-neutral-400">Introduce el PIN generado por Kodi para obtener tus tokens de acceso</CardDescription>
                     </CardHeader>
                     <CardContent>
                         <form onSubmit={handlePinSubmit} className="space-y-4">
@@ -114,7 +114,7 @@ export default function DashboardPage() {
                                 placeholder="PIN de Kodi"
                                 value={pin}
                                 onChange={(e) => setPin(e.target.value)}
-                                className="bg-gray-900 border-gray-700 text-gray-100"
+                                className="bg-neutral-900 border-neutral-700 text-neutral-100"
                             />
                             <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white">
                                 Verificar PIN
@@ -129,21 +129,21 @@ export default function DashboardPage() {
                     </CardContent>
                 </Card>
 
-                <Card className="mb-6 bg-gray-950 border-gray-800">
+                <Card className="mb-6 bg-neutral-950 border-neutral-800">
                     <CardHeader>
                         <CardTitle className="text-blue-400">Información de acceso</CardTitle>
-                        <CardDescription className="text-white">Utiliza esta información para configurar el add-on de Kodi</CardDescription>
+                        <CardDescription className="text-neutral-400">Utiliza esta información para configurar el add-on de Kodi</CardDescription>
                     </CardHeader>
                     <CardContent>
                         <div className="space-y-4">
                             <div>
-                                <p className="font-semibold text-gray-300">Token de acceso:</p>
+                                <p className="font-semibold text-neutral-300">Token de acceso:</p>
                                 <div className="flex items-center mt-1">
                                     <code className="bg-black p-2 rounded flex-1 overflow-x-auto text-blue-300">
                                         {accessToken}
                                     </code>
                                     <Button variant="outline" size="icon"
-                                            className="ml-2 bg-gray-900 hover:bg-gray-800 border-gray-700"
+                                            className="ml-2 bg-neutral-900 hover:bg-neutral-800 border-neutral-700 text-neutral-100 hover:text-neutral-250"
                                             onClick={handleCopyToken}>
                                         <Copy className="h-4 w-4"/>
                                     </Button>
@@ -152,32 +152,32 @@ export default function DashboardPage() {
                                     <p className="text-sm text-green-400 mt-1">¡Copiado al portapapeles!</p>}
                             </div>
                             <div>
-                                <p className="font-semibold text-gray-300">Token de actualización:</p>
+                                <p className="font-semibold text-neutral-300">Token de actualización:</p>
                                 <code className="bg-black p-2 rounded block overflow-x-auto text-blue-300">
                                     {refreshToken}
                                 </code>
                             </div>
                             <div>
-                                <p className="font-semibold text-gray-300">Expira en:</p>
-                                <p className="text-white">{expiresIn} segundos</p>
+                                <p className="font-semibold text-neutral-300">Expira en:</p>
+                                <p className="text-neutral-400">{expiresIn} segundos</p>
                             </div>
                         </div>
                     </CardContent>
                     <CardFooter>
                         <Button variant="outline"
-                                className="w-full bg-gray-900 hover:bg-gray-800 text-gray-100 border-gray-700">
+                                className="w-full bg-neutral-900 hover:bg-neutral-800 text-neutral-100 hover:text-neutral-250 border-neutral-700">
                             <RefreshCw className="mr-2 h-4 w-4"/> Actualizar tokens
                         </Button>
                     </CardFooter>
                 </Card>
 
-                <Card className="bg-gray-950 border-gray-800">
+                <Card className="bg-neutral-950 border-neutral-800">
                     <CardHeader>
                         <CardTitle className="text-blue-400">Próximos pasos</CardTitle>
-                        <CardDescription>Sigue estas instrucciones para completar la configuración en Kodi</CardDescription>
+                        <CardDescription className="text-neutral-400">Sigue estas instrucciones para completar la configuración en Kodi</CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <ol className="list-decimal list-inside space-y-4 text-gray-300">
+                        <ol className="list-decimal list-inside space-y-4 text-neutral-300">
                             <li>Abre Kodi en tu dispositivo</li>
                             <li>Ve a &quot;Complementos&quot; y selecciona &quot;Instalar desde repositorio&quot;</li>
                             <li>Busca y selecciona el complemento &quot;Google Drive para Kodi&quot;</li>

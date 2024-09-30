@@ -80,7 +80,7 @@ export default function Component() {
               </button>
             </form>
           </div>
-          <div className="px-6 py-4 bg-black/10 backdrop-blur-sm flex justify-between text-sm text-gray-300">
+          <div className="px-6 py-4 bg-black/10 backdrop-blur-sm flex justify-between text-sm text-neutral-300">
             <Link href="/terms" className="hover:text-white transition-colors duration-200">Términos de uso</Link>
             <Link href="/privacy" className="hover:text-white transition-colors duration-200">Política de
               privacidad</Link>

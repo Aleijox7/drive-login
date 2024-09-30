@@ -7,8 +7,8 @@ import LocaleSwitcher from "@/components/LocaleSwitcher";
 
 export default function PrivacyPolicy() {
     return (
-        <div className="flex flex-col min-h-screen bg-black text-gray-100">
-            <header className="px-4 lg:px-6 h-14 flex items-center justify-between border-b border-gray-800">
+        <div className="flex flex-col min-h-screen bg-black text-neutral-100">
+            <header className="px-4 lg:px-6 h-14 flex items-center justify-between border-b border-neutral-800">
                 <Link className="flex items-center justify-center" href="/">
                     <Film className="h-6 w-6 mr-2 text-blue-400"/>
                     <span className="font-bold text-blue-400">{siteConfig.appName}</span>
@@ -25,7 +25,7 @@ export default function PrivacyPolicy() {
             </header>
             <main className="flex-1 container mx-auto px-4 py-8">
                 <h1 className="text-3xl font-bold mb-2 text-center">Política de Privacidad</h1>
-                <p className="text-right text-sm text-gray-400 mb-8">Última Actualización: {siteConfig.lastUpdated}</p>
+                <p className="text-right text-sm text-neutral-400 mb-8">Última Actualización: {siteConfig.lastUpdated}</p>
 
                 <div className="space-y-8">
                     <p>

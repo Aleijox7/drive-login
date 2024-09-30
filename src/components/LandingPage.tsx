@@ -37,8 +37,8 @@ export default function LandingPage() {
     }
 
     return (
-        <div className="flex flex-col min-h-screen bg-black text-gray-100">
-            <header className="px-4 lg:px-6 h-14 flex items-center justify-between border-b border-gray-800">
+        <div className="flex flex-col min-h-screen bg-black text-neutral-100">
+            <header className="px-4 lg:px-6 h-14 flex items-center justify-between border-b border-neutral-800">
                 <Link className="flex items-center justify-center" href="#">
                     <Film className="h-6 w-6 mr-2 text-blue-400" />
                     <span className="font-bold text-blue-400">{siteConfig.appName}</span>
@@ -61,7 +61,7 @@ export default function LandingPage() {
                                 <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
                                     {t('hero.title')}
                                 </h1>
-                                <p className="mx-auto max-w-[700px] text-gray-400 md:text-xl">
+                                <p className="mx-auto max-w-[700px] text-neutral-400 md:text-xl">
                                     {t('hero.description')}
                                 </p>
                             </div>
@@ -79,7 +79,7 @@ export default function LandingPage() {
                         </h2>
                         <div className="grid gap-6 lg:grid-cols-3 lg:gap-12">
                             {t.raw('features.items').map((feature: Feature, index: number) => (
-                                <Card key={index} className="bg-black border-gray-800">
+                                <Card key={index} className="bg-black border-neutral-800">
                                     <CardHeader>
                                         <CardTitle className="flex items-center text-blue-400">
                                             {index === 0 && <Lock className="mr-2 h-4 w-4" />}
@@ -88,7 +88,7 @@ export default function LandingPage() {
                                             {feature.title}
                                         </CardTitle>
                                     </CardHeader>
-                                    <CardContent className="text-gray-300">
+                                    <CardContent className="text-neutral-300">
                                         {feature.description}
                                     </CardContent>
                                 </Card>
